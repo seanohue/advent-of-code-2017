@@ -5,9 +5,17 @@ const testsheet =
 7 5 3
 2 4 6 8`;
 
-describe('Simple Spreadsheet', function() {
+const testsheet2 =
+`5 9 2 8
+9 4 7 3
+3 8 6 5`
+
+describe('Checksum for Spreadsheet', function() {
   it('should check sum', function () {
     expect(checksum(testsheet, ' ')).to.equal(18);
+  });
+  it('should check sum by using even division', function () {
+    expect(checksum(testsheet2, ' ', true)).to.equal(9);
   });
 });
 
@@ -29,4 +37,4 @@ const puzzlesheet =
 2837	2747	2856	426	72	78	2361	96	2784	2780	98	2041	2444	1267	2167	2480
 411	178	4263	4690	3653	162	3201	4702	3129	2685	3716	147	3790	4888	79	165`
 
-console.log(checksum(puzzlesheet));
+console.log(checksum(puzzlesheet,'\t', true));
