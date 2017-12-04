@@ -1,18 +1,16 @@
-module.exports = (input) => {
+module.exports = (input, halfsies) => {
   return input
     .split('')
     .map(Number)
     .reduce((acc, current, index, digits) => {
-
-      // Check for last.
-      if (index === digits.length - 1) {
-        if (current === digits[0]) {
-          return acc + current;
-        }
+      let checkAgainst = 1;
+      if (halfsies) {
+        checkAgainst = Math.ceil(digits.length / 2);
       }
 
       // Check to see if matches next.
-      if (current === digits[index + 1]) {
+      const checkIndex = (index + checkAgainst) % digits.length;
+      if (current === digits[checkIndex]) {
         return acc + current;
       }
 
