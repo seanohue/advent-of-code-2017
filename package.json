@@ -4,7 +4,7 @@
   "description": "Advent of Code challenges for 2017",
   "main": "N/A",
   "scripts": {
-    "test": "mocha --recursive *.spec.js --require test-fixtures.js"
+    "test": "mocha --recursive ./*.spec.js --require test-fixtures.js"
   },
   "keywords": [
     "advent",
