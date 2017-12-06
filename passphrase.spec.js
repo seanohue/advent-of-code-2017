@@ -20,7 +20,7 @@ describe.only('Finding number of valid passphrases', function () {
   it('should return number of valid passphrases given a string w/ a phrase on each line', function () {
     expect(passphrase.numberValid(phrases)).to.equal(2);
   });
-  xit ('should be able to do a lot of em', function () {    var test = require('./passphrases');
+  xit('should be able to do a lot of em', function () {
     const test = require('./passphrases');
     expect(passphrase.numberValid(test)).to.equal(/*spoiler*/);
   });
