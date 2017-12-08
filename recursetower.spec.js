@@ -16,7 +16,7 @@ gyxo (61)
 cntj (57)`;
 
 describe('finding bottom of tower', function () {
-  it.only('should be able to find it based on data', function () {
+  it('should be able to find it based on data', function () {
     expect(recurseTower(test)).to.equal('tknk');
   });
-})
+});
