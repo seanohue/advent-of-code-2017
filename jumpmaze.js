@@ -1,8 +1,7 @@
-module.exports = (steps) => {
-  const jumper = new Jumper(steps);
+module.exports = (steps, decrementAt = Infinity) => {
+  const jumper = new Jumper(steps, decrementAt);
 
   while (jumper.inList) {
-    console.log(jumper);
     jumper.jump();
   }
 
@@ -10,10 +9,11 @@ module.exports = (steps) => {
 }
 
 class Jumper {
-  constructor(list) {
+  constructor(list, decrementAt = Infinity) {
     this.list = list.split('\n').map(Number);
     this.stepsTaken = 0;
     this.index = 0;
+    this.decrementAt = decrementAt;
   }
 
   get current() {
@@ -26,8 +26,14 @@ class Jumper {
 
   jump() {
     const amount = this.current;
-    this.list[this.index]++;
+    this.changeOffset();
     this.index += amount;
     this.stepsTaken++;
+  }
+
+  changeOffset() {
+    this.list[this.index] < this.decrementAt
+      ? this.list[this.index]++
+      : this.list[this.index]--;
   }
 }
