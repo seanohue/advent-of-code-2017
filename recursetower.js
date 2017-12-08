@@ -1,16 +1,16 @@
 module.exports = (data) => {
   const tower = new Tower(data);
-  return tower.bottomNode;
+  return tower.bottomNode.name;
 }
 
 class Tower {
   constructor(data) {
-    this.nodes = data.split('/n').map(node => new Node(node));
+    this.nodes = data.split('\n').map(node => new Node(node));
   }
 
   nodeIsChild(potentialChildNode) {
     return this.nodes.find(
-      node => otherNode.children.includes(potentialChildNode)
+      node => node.children.includes(potentialChildNode.name)
     );
   }
 
@@ -24,11 +24,11 @@ class Tower {
 class Node {
   constructor(nodeString) {
     this.data = nodeString;
-    this.name = this.data.split(' ')[0];
+    this.name = this.data.split(' ')[0].trim();
 
     this.weight = this.data.split('(')[1].split(')')[0]; // lol
     if (this.data.includes('->')) {
-      this.children = this.data.split('->')[1].split(',');
+      this.children = this.data.split('->')[1].split(',').map(s => s.trim());
     } else {
       this.children = [];
     }

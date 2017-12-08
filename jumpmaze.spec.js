@@ -9,4 +9,3 @@ describe('Jumping the maze', function () {
   });
 });
 
-console.log(jumpmaze(require('./jumps'), 3));
